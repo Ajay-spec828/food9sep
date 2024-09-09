@@ -1,0 +1,70 @@
+<html>
+    <head>
+         <title>Food App</title>
+         <style>
+               *{font-size:40px; font-family:calibri;}
+                 body{background-color:azure};
+                 input [type=radio]{width:2%; height:0.75em;}
+         </style>
+      </head>
+    <body>
+           <center>
+                <h1>Food App</h1>
+                 <form onsubmit="show()">
+                 <input type="text" id="name"  placeholder="please enter your name"/>
+                 <br/><br/>
+                 <input type="radio" id="ni"/>North Indian
+                 <input type="radio" id="si"/>South Indian
+                 <input type="radio" id="ff" checked="true"/>Fast food
+                 <br/><br/>
+                 <input type="submit"/>
+               </form>
+               <h2 id="msg"/>
+              <script>
+                    function show()
+                   {
+                       event.preventDefault();
+                       let name= document.getElementById("name");
+                       let ni= document.getElementById("ni");
+                       let si= document.getElementById("si");
+                       let ff= document.getElementById("ff");
+                       let msg= document.getElementById("msg");
+               
+                     let n= name.value;
+                   
+
+
+                       if (n.trim()==="")
+                        {
+                             alert("please enter your name");
+                              msg.innerHTML="";
+                             name.focus();
+                             return;
+
+
+                           }
+                           if (!n.match("^[a-z A-Z]+$"))
+                        {
+                             alert("please enter your name");
+                              msg.innerHTML="";
+                             name.focus();
+                             return;
+
+
+                           }
+                           let choice ="";
+                           if (ni.checked)         choice= "North Indian";
+                            else if (si.checked)    choice="South Indian";
+                           else                      choice="Fast Food";
+               
+                          let a = "name="+ n + "choice=" + choice;
+                          msg.innerHTML= a;
+ 
+                   }
+
+
+             </script>
+                   
+       </center>
+   </body>
+</html>   
